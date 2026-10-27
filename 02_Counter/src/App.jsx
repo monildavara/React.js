@@ -16,6 +16,12 @@ function App() {
     setCounter(counter - 1);
   }
 
+if (counter < 0) {
+  setCounter(0);
+}else if (counter > 20) {
+  setCounter(20);
+}
+
 
   return (
   <>
