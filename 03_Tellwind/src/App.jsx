@@ -21,7 +21,7 @@ function App() {
     <>
     <h1 className = 'bg-blue-700 text-black text-center p-2 rounded-3xl'>Tellwind Test in Vite</h1>
     <Card UserName = "Monil" btnText = "click me " />
-    <Card UserName = " davra" btnText = "click me again "/>
+    <Card UserName = "davra"  />
 
     
     </>

@@ -26,8 +26,9 @@ const PasswordRef = useRef(null)
   
     }, [length, number, character, setPassword])
 
-    const copyPassword = useCallback(() => {
-      
+    const copyPasswordToClipboard = useCallback(() => {
+      PasswordRef.current?.select()
+      window.navigator.clipboard.writeText(password)
     }, [password])
 
     useEffect(() => {
@@ -49,7 +50,7 @@ const PasswordRef = useRef(null)
         ref={PasswordRef}
         />
           <button
-          onClick={copyPassword}
+          onClick={copyPasswordToClipboard}
           className= 'outline-none bg-blue-700 text-white px-3 py-1 shrink-0'>Copy</button>
         </div>
           <div className= "flex text-sm gap-x-2">
@@ -57,7 +58,7 @@ const PasswordRef = useRef(null)
               <input
               type="range"
               min = "8"
-              max = "50"
+              max = "100"
               value={length}
               className= "cursor-pointer"
               onChange={(e) => setLength(e.target.value)}
@@ -66,7 +67,7 @@ const PasswordRef = useRef(null)
           <div className= "flex items-center gap-x-1" />
             <input
             type="checkbox"
-            defaultchecked={number}
+            defaultChecked={number}
             id="number"
             onChange={() => {setNumbers((prev) => !prev)}}
             />
